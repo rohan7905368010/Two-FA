@@ -8,21 +8,11 @@ use App\Models\UserCode;
   
 class TwoFAController extends Controller
 {
-    /**
-     * Write code on Method
-     *
-     * @return response()
-     */
     public function index()
     {
         return view('2fa');
     }
   
-    /**
-     * Write code on Method
-     *
-     * @return response()
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -41,11 +31,7 @@ class TwoFAController extends Controller
   
         return back()->with('error', 'You entered wrong code.');
     }
-    /**
-     * Write code on Method
-     *
-     * @return response()
-     */
+
     public function resend()
     {
         auth()->user()->generateCode();
